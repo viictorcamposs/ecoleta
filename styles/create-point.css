@@ -30,3 +30,18 @@
   width: 20px;
   height: 22px;
 }
+
+form {
+  background-color: white;
+  
+  /*Preenchimento*/
+  padding: 64px;
+  
+  /*Arredondar borda*/
+  border-radius: 8px;
+
+  max-width: 730px;
+  
+  /*Alinhamento da caixa (pelo lado de fora)*/
+  margin: 80px auto;
+}
