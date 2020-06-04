@@ -1,122 +1,110 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar ponto de coleta</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
+{% extends "layout.html" %}
+{% set bodyId = "page-create-point" %}
     
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/create-point.css">
-    <link rel="stylesheet" href="styles/responsive.css">
+    {% block title %}
+      <title>Cadastrar ponto de coleta</title>
+    {% endblock title %}
+
+    {% block styles %}
+      <link rel="stylesheet" href="styles/create-point.css">
+    {% endblock styles %}
   
-  </head>
-  <body>
-    
-    <div id="page-create-point">
-      
-        <header>
-          <img src="/icones/logo.svg" alt="logomarca">
-          <a href="/">
-            <span></span>
-            Voltar para Home
-          </a>
-        </header>
+    {% block content %}
+      {% include "partials/page-header.html" %}
+      <form action="">
 
-        <form action="">
+        <h1>Cadastro do ponto de coleta</h1>
 
-          <h1>Cadastro do ponto de coleta</h1>
+        <!--Tag semântica para agrupar as duas partes de dados da página-->
+        <fieldset>
+          <legend>
+            <h2>Dados da entidade</h2>
+          </legend>
 
-          <!--Tag semântica para agrupar as duas partes de dados da página-->
-          <fieldset>
-            <legend>
-              <h2>Dados da entidade</h2>
-            </legend>
+          <div class="field">
+            <!--Campo de cima do meu preenchimento: <label>-->
+            <label for="name">Nome da entidade</label>
+            <!--Campo onde será colocado um dado: tipo text-->
+            <input type="text" name="name" required>
+          </div>
 
+          <div class="field-group">
             <div class="field">
-              <!--Campo de cima do meu preenchimento: <label>-->
-              <label for="name">Nome da entidade</label>
-              <!--Campo onde será colocado um dado: tipo text-->
-              <input type="text" name="name" required>
+              <label for="address">Endereço</label>
+              <input type="text" name="address" required>
             </div>
-
-            <div class="field-group">
-                <div class="field">
-                  <label for="address">Endereço</label>
-                  <input type="text" name="address" required>
-                </div>
-                <div class="field">
-                  <label for="address2">Número/Complemento</label>
-                  <input type="text" name="address2" required>
-                </div>
+            <div class="field">
+              <label for="address2">Número/Complemento</label>
+              <input type="text" name="address2" required>
             </div>
+          </div>
 
-            <div class="field-group">
-              <div class="field">
-                <label for="state">Estado</label>
-                <select name="uf" required>
-                  <option value="">Selecione o estado</option>
-                </select>
+          <div class="field-group">
+            <div class="field">
+              <label for="state">Estado</label>
+              <select name="uf" required>
+                <option value="">Selecione o estado</option>
+              </select>
 
-                <input type="hidden" name="state">
-              </div>
-              <div class="field">
-                <label for="city">Cidade</label>
-                <select name="city" required disabled>
-                  <option value="">Selecione a cidade</option>
-                </select>
-              </div>
+              <input type="hidden" name="state">
             </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>
-              <h2>Itens de coleta</h2>
-            </legend>
-
-            <div class="items-grid">
-
-              <li data-id="1">
-                <img src="/icones/lampadas.svg" alt="Lâmpadas">
-                <span>Lâmpadas</span>
-              </li>
-
-              <li data-id="2">
-                <img src="/icones/baterias.svg" alt="Pilhas e Baterias">
-                <span>Pilhas e Baterias</span>
-              </li>
-
-              <li data-id="3">
-                <img src="/icones/papeis-papelao.svg" alt="Papéis e Papelão">
-                <span>Papéis e Papelão</span>
-              </li>
-
-              <li data-id="4">
-                <img src="/icones/eletronicos.svg" alt="Resíduos Eletrônicos">
-                <span>Resíduos Eletrônicos</span>
-              </li>
-
-              <li data-id="5">
-                <img src="/icones/organicos.svg" alt="Resíduos Orgânicos">
-                <span>Resíduos Orgânicos</span>
-              </li>
-
-              <li data-id="6">
-                <img src="/icones/oleo.svg" alt="Óleo de Cozinha">
-                <span>Óleo de Cozinha</span>
-              </li>
-
+            <div class="field">
+              <label for="city">Cidade</label>
+              <select name="city" required disabled>
+                <option value="">Selecione a cidade</option>
+              </select>
             </div>
+          </div>
+        </fieldset>
 
-            <input type="hidden" name="items">
-          </fieldset>
+        <fieldset>
+          <legend>
+            <h2>Itens de coleta</h2>
+          </legend>
 
-          <!--Submit dentro do form significa que vou querer enviar o formulário-->
-          <button type="submit">Cadastrar ponto de coleta</button>
-        </form>
-    
-    </div>
-    <script src="/scripts/create.point.js"></script>
-</body>
-</html>
+          <div class="items-grid">
+
+            <li data-id="1">
+              <img src="/icones/lampadas.svg" alt="Lâmpadas">
+              <span>Lâmpadas</span>
+            </li>
+
+            <li data-id="2">
+              <img src="/icones/baterias.svg" alt="Pilhas e Baterias">
+              <span>Pilhas e Baterias</span>
+            </li>
+
+            <li data-id="3">
+              <img src="/icones/papeis-papelao.svg" alt="Papéis e Papelão">
+              <span>Papéis e Papelão</span>
+            </li>
+
+            <li data-id="4">
+              <img src="/icones/eletronicos.svg" alt="Resíduos Eletrônicos">
+              <span>Resíduos Eletrônicos</span>
+            </li>
+
+            <li data-id="5">
+              <img src="/icones/organicos.svg" alt="Resíduos Orgânicos">
+              <span>Resíduos Orgânicos</span>
+            </li>
+
+            <li data-id="6">
+              <img src="/icones/oleo.svg" alt="Óleo de Cozinha">
+              <span>Óleo de Cozinha</span>
+            </li>
+
+          </div>
+
+          <input type="hidden" name="items">
+        </fieldset>
+
+        <!--Submit dentro do form significa que vou querer enviar o formulário-->
+        <button type="submit">Cadastrar ponto de coleta</button>
+      </form>
+    {% endblock content %}
+
+
+    {% block script %}
+      <script src="/scripts/create.point.js"></script>
+    {% endblock script %}

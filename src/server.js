@@ -26,8 +26,8 @@ const server = express ();
     })
   
   // página de resultados
-    server.get ("/search-results", function (req, res) {
-      res.sendFile (__dirname + "/views/search-results.html")
+    server.get ("/search", function (req, res) {
+      return res.render ("search-results.html");
     })
 
 // ligar o servidor
